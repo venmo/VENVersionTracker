@@ -1,0 +1,442 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C250B2901817272A0094D2C1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C250B28F1817272A0094D2C1 /* Foundation.framework */; };
+		C250B2951817272A0094D2C1 /* VENVersionTracker.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C250B2941817272A0094D2C1 /* VENVersionTracker.h */; };
+		C250B2971817272A0094D2C1 /* VENVersionTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = C250B2961817272A0094D2C1 /* VENVersionTracker.m */; };
+		C250B29E1817272A0094D2C1 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C250B29D1817272A0094D2C1 /* XCTest.framework */; };
+		C250B29F1817272A0094D2C1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C250B28F1817272A0094D2C1 /* Foundation.framework */; };
+		C250B2A11817272A0094D2C1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C250B2A01817272A0094D2C1 /* UIKit.framework */; };
+		C250B2A41817272A0094D2C1 /* libVENVersionTracker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C250B28C1817272A0094D2C1 /* libVENVersionTracker.a */; };
+		C250B2AA1817272A0094D2C1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C250B2A81817272A0094D2C1 /* InfoPlist.strings */; };
+		C250B2AC1817272A0094D2C1 /* VENVersionTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C250B2AB1817272A0094D2C1 /* VENVersionTrackerTests.m */; };
+		C250B2BB181729DC0094D2C1 /* VENVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = C250B2BA181729DC0094D2C1 /* VENVersion.m */; };
+		C250B2BC181729DC0094D2C1 /* VENVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = C250B2BA181729DC0094D2C1 /* VENVersion.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C250B2A21817272A0094D2C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C250B2841817272A0094D2C1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C250B28B1817272A0094D2C1;
+			remoteInfo = VENVersionTracker;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C250B28A1817272A0094D2C1 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				C250B2951817272A0094D2C1 /* VENVersionTracker.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		C250B28C1817272A0094D2C1 /* libVENVersionTracker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libVENVersionTracker.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C250B28F1817272A0094D2C1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C250B2931817272A0094D2C1 /* VENVersionTracker-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VENVersionTracker-Prefix.pch"; sourceTree = "<group>"; };
+		C250B2941817272A0094D2C1 /* VENVersionTracker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VENVersionTracker.h; sourceTree = "<group>"; };
+		C250B2961817272A0094D2C1 /* VENVersionTracker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENVersionTracker.m; sourceTree = "<group>"; };
+		C250B29C1817272A0094D2C1 /* VENVersionTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VENVersionTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C250B29D1817272A0094D2C1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		C250B2A01817272A0094D2C1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		C250B2A71817272A0094D2C1 /* VENVersionTrackerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "VENVersionTrackerTests-Info.plist"; sourceTree = "<group>"; };
+		C250B2A91817272A0094D2C1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C250B2AB1817272A0094D2C1 /* VENVersionTrackerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENVersionTrackerTests.m; sourceTree = "<group>"; };
+		C250B2B9181729DC0094D2C1 /* VENVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VENVersion.h; sourceTree = "<group>"; };
+		C250B2BA181729DC0094D2C1 /* VENVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VENVersion.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C250B2891817272A0094D2C1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C250B2901817272A0094D2C1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C250B2991817272A0094D2C1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C250B29E1817272A0094D2C1 /* XCTest.framework in Frameworks */,
+				C250B2A11817272A0094D2C1 /* UIKit.framework in Frameworks */,
+				C250B29F1817272A0094D2C1 /* Foundation.framework in Frameworks */,
+				C250B2A41817272A0094D2C1 /* libVENVersionTracker.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C250B2831817272A0094D2C1 = {
+			isa = PBXGroup;
+			children = (
+				C250B2911817272A0094D2C1 /* VENVersionTracker */,
+				C250B2A51817272A0094D2C1 /* VENVersionTrackerTests */,
+				C250B28E1817272A0094D2C1 /* Frameworks */,
+				C250B28D1817272A0094D2C1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C250B28D1817272A0094D2C1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C250B28C1817272A0094D2C1 /* libVENVersionTracker.a */,
+				C250B29C1817272A0094D2C1 /* VENVersionTrackerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C250B28E1817272A0094D2C1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C250B28F1817272A0094D2C1 /* Foundation.framework */,
+				C250B29D1817272A0094D2C1 /* XCTest.framework */,
+				C250B2A01817272A0094D2C1 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C250B2911817272A0094D2C1 /* VENVersionTracker */ = {
+			isa = PBXGroup;
+			children = (
+				C250B2B8181729DC0094D2C1 /* Model */,
+				C250B2941817272A0094D2C1 /* VENVersionTracker.h */,
+				C250B2961817272A0094D2C1 /* VENVersionTracker.m */,
+				C250B2921817272A0094D2C1 /* Supporting Files */,
+			);
+			path = VENVersionTracker;
+			sourceTree = "<group>";
+		};
+		C250B2921817272A0094D2C1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C250B2931817272A0094D2C1 /* VENVersionTracker-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C250B2A51817272A0094D2C1 /* VENVersionTrackerTests */ = {
+			isa = PBXGroup;
+			children = (
+				C250B2AB1817272A0094D2C1 /* VENVersionTrackerTests.m */,
+				C250B2A61817272A0094D2C1 /* Supporting Files */,
+			);
+			path = VENVersionTrackerTests;
+			sourceTree = "<group>";
+		};
+		C250B2A61817272A0094D2C1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C250B2A71817272A0094D2C1 /* VENVersionTrackerTests-Info.plist */,
+				C250B2A81817272A0094D2C1 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C250B2B8181729DC0094D2C1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C250B2B9181729DC0094D2C1 /* VENVersion.h */,
+				C250B2BA181729DC0094D2C1 /* VENVersion.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C250B28B1817272A0094D2C1 /* VENVersionTracker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C250B2AF1817272A0094D2C1 /* Build configuration list for PBXNativeTarget "VENVersionTracker" */;
+			buildPhases = (
+				C250B2881817272A0094D2C1 /* Sources */,
+				C250B2891817272A0094D2C1 /* Frameworks */,
+				C250B28A1817272A0094D2C1 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VENVersionTracker;
+			productName = VENVersionTracker;
+			productReference = C250B28C1817272A0094D2C1 /* libVENVersionTracker.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		C250B29B1817272A0094D2C1 /* VENVersionTrackerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C250B2B21817272A0094D2C1 /* Build configuration list for PBXNativeTarget "VENVersionTrackerTests" */;
+			buildPhases = (
+				C250B2981817272A0094D2C1 /* Sources */,
+				C250B2991817272A0094D2C1 /* Frameworks */,
+				C250B29A1817272A0094D2C1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C250B2A31817272A0094D2C1 /* PBXTargetDependency */,
+			);
+			name = VENVersionTrackerTests;
+			productName = VENVersionTrackerTests;
+			productReference = C250B29C1817272A0094D2C1 /* VENVersionTrackerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C250B2841817272A0094D2C1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = Venmo;
+			};
+			buildConfigurationList = C250B2871817272A0094D2C1 /* Build configuration list for PBXProject "VENVersionTracker" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C250B2831817272A0094D2C1;
+			productRefGroup = C250B28D1817272A0094D2C1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C250B28B1817272A0094D2C1 /* VENVersionTracker */,
+				C250B29B1817272A0094D2C1 /* VENVersionTrackerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C250B29A1817272A0094D2C1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C250B2AA1817272A0094D2C1 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C250B2881817272A0094D2C1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C250B2BB181729DC0094D2C1 /* VENVersion.m in Sources */,
+				C250B2971817272A0094D2C1 /* VENVersionTracker.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C250B2981817272A0094D2C1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C250B2BC181729DC0094D2C1 /* VENVersion.m in Sources */,
+				C250B2AC1817272A0094D2C1 /* VENVersionTrackerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C250B2A31817272A0094D2C1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C250B28B1817272A0094D2C1 /* VENVersionTracker */;
+			targetProxy = C250B2A21817272A0094D2C1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C250B2A81817272A0094D2C1 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C250B2A91817272A0094D2C1 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C250B2AD1817272A0094D2C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		C250B2AE1817272A0094D2C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C250B2B01817272A0094D2C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/VENVersionTracker.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "VENVersionTracker/VENVersionTracker-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		C250B2B11817272A0094D2C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/VENVersionTracker.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "VENVersionTracker/VENVersionTracker-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		C250B2B31817272A0094D2C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "VENVersionTracker/VENVersionTracker-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "VENVersionTrackerTests/VENVersionTrackerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		C250B2B41817272A0094D2C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "VENVersionTracker/VENVersionTracker-Prefix.pch";
+				INFOPLIST_FILE = "VENVersionTrackerTests/VENVersionTrackerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C250B2871817272A0094D2C1 /* Build configuration list for PBXProject "VENVersionTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C250B2AD1817272A0094D2C1 /* Debug */,
+				C250B2AE1817272A0094D2C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C250B2AF1817272A0094D2C1 /* Build configuration list for PBXNativeTarget "VENVersionTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C250B2B01817272A0094D2C1 /* Debug */,
+				C250B2B11817272A0094D2C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C250B2B21817272A0094D2C1 /* Build configuration list for PBXNativeTarget "VENVersionTrackerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C250B2B31817272A0094D2C1 /* Debug */,
+				C250B2B41817272A0094D2C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C250B2841817272A0094D2C1 /* Project object */;
+}
