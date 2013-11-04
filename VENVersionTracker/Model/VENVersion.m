@@ -11,20 +11,25 @@
 @implementation VENVersion
 
 - (instancetype)initWithJSONPayload:(NSDictionary *)payload {
-    if (!payload || ![payload isKindOfClass:[NSDictionary class]] || ![payload objectForKey:@"number"]) {
-        NSLog(@"VENVersionTracker :: Attempted to created invalid version");
+    
+    @try {
+        if (!payload || ![payload isKindOfClass:[NSDictionary class]] || ![payload objectForKey:@"number"]) {
+            NSLog(@"VENVersionTracker :: Attempted to created invalid version");
+            return nil;
+        }
+        
+        self = [super init];
+        if (self) {
+            self.versionString      = [NSString stringWithFormat:@"%@", [payload objectForKey:@"number"]];
+            self.installUrl         = [payload objectForKey:@"install_url"];
+            self.mandatory          = [[payload objectForKey:@"mandatory"] isEqualToNumber:[NSNumber numberWithBool:YES]];
+            self.descriptionText    = @"";
+        }
+        return self;
+    }
+    @catch (NSException *exception) {
         return nil;
     }
-    
-    self = [super init];
-    if (self) {
-        self.number         = [payload objectForKey:@"number"];
-        self.name           = [payload objectForKey:@"name"];
-        self.installUrl     = [payload objectForKey:@"install_url"];
-        self.mandatory      = [[payload objectForKey:@"mandatory"] isEqualToNumber:[NSNumber numberWithBool:YES]];
-        self.description    = @"";
-    }
-    return self;
 }
 
 
@@ -37,7 +42,7 @@
 
 
 - (NSComparisonResult)compare:(VENVersion *)otherVersion {
-    return [self.number compare:otherVersion.number options:NSNumericSearch];
+    return [self.versionString compare:otherVersion.versionString options:NSNumericSearch];
 }
 
 
@@ -63,19 +68,24 @@
                           JSONObjectWithData:data
                           options:kNilOptions
                           error:&err];
-    VENVersion *version = [[VENVersion alloc] initWithJSONPayload:json];
-    
-    return version;
+    if (json && [json objectForKey:@"version"]) {
+        VENVersion *version = [[VENVersion alloc] initWithJSONPayload:[json objectForKey:@"version"]];
+        return version;
+    }
+    return nil;
 }
 
 
 + (VENVersion *)currentLocalVersion {
     NSString *versionString = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
     
-    VENVersion *version = [[VENVersion alloc] init];
-    version.number      = versionString;
-    version.name        = versionString;
-    version.mandatory   = NO;
+    if (!versionString) { //Not in a bundle -- return 0
+        versionString = @"0";
+    }
+    
+    VENVersion *version     = [[VENVersion alloc] init];
+    version.versionString   = versionString;
+    version.mandatory       = NO;
     
     return version;
 }

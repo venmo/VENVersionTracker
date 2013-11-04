@@ -10,9 +10,8 @@
 
 @interface VENVersion : NSObject
 
-@property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSString *number;
-@property (nonatomic, strong) NSString *description;
+@property (nonatomic, strong) NSString *versionString;
+@property (nonatomic, strong) NSString *descriptionText;
 @property (nonatomic, strong) NSString *installUrl;
 @property (nonatomic) BOOL mandatory;
 

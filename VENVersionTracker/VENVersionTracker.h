@@ -18,11 +18,14 @@ typedef enum {
 } VENVersionTrackerState;
 
 typedef void (^VENVersionHandlerBlock)(VENVersionTrackerState, VENVersion *);
+typedef void (^VENVersionTrackBlock)();
 
 @interface VENVersionTracker : NSObject
 
 @property (nonatomic, strong) NSString *channelName;
 @property (nonatomic, strong) NSString *baseUrl;
+
+@property (nonatomic, copy) VENVersionTrackBlock trackBlock;
 @property (nonatomic, copy) VENVersionHandlerBlock handler;
 @property (nonatomic) VENVersionTrackerState currentState;
 
@@ -30,4 +33,8 @@ typedef void (^VENVersionHandlerBlock)(VENVersionTrackerState, VENVersion *);
                         serviceBaseUrl:(NSString *)baseUrl
                            withHandler:(void (^)(VENVersionTrackerState, VENVersion *))handler;
 
++ (VENVersionTracker *)tracker;
+
+- (BOOL)startTracking;
+- (BOOL)stopTracking;
 @end

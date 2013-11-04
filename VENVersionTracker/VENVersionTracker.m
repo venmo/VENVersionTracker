@@ -15,6 +15,8 @@ static VENVersionTracker *versionTracker = nil;
 #pragma mark - Private Interface -
 @interface VENVersionTracker(){}
 
+@property (nonatomic, strong) dispatch_source_t timerSource;
+
 - (instancetype)initWithChannel:(NSString *)channel
                  serviceBaseUrl:(NSString *)baseUrl
                      andHandler:(VENVersionHandlerBlock)handler;
@@ -80,23 +82,37 @@ static VENVersionTracker *versionTracker = nil;
 #pragma mark - Start and Stopping -
 
 - (BOOL)startTracking {
+    return [self startTrackingWithTrackBlock:^{
+        [self checkForUpdates];
+    }];
+}
+
+- (BOOL)startTrackingWithTrackBlock:(VENVersionTrackBlock)trackBlock {
     
+    self.trackBlock = trackBlock;
+    
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    self.timerSource = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
+    dispatch_source_set_timer(self.timerSource, dispatch_walltime(NULL, 0), 30ull * NSEC_PER_SEC, 1ull * NSEC_PER_SEC);
+    dispatch_source_set_event_handler(self.timerSource, self.trackBlock);
+    dispatch_resume(self.timerSource);
     return YES;
 }
 
 
 - (BOOL)stopTracking {
-    
+    dispatch_source_cancel(self.timerSource);
+    self.trackBlock = nil;
     return YES;
 }
 
 
 #pragma mark - Track a channel -
 
-- (void)track {
+- (void)checkForUpdates {
     
-    VENVersion *version     = [VENVersion latestRemoteVersionForChannel:self.channelName withBaseUrl:self.baseUrl];
-    VENVersion *localVersion = [VENVersion currentLocalVersion];
+    VENVersion *version         = [VENVersion latestRemoteVersionForChannel:self.channelName withBaseUrl:self.baseUrl];
+    VENVersion *localVersion    = [VENVersion currentLocalVersion];
     
     if (version && [version compare:localVersion] == NSOrderedAscending) {
         
@@ -105,7 +121,13 @@ static VENVersionTracker *versionTracker = nil;
             // Already knew
         }
         else {
-            self.currentState = VENVersionTrackerStateOutdated;
+            if (version.mandatory) {
+                self.currentState = VENVersionTrackerStateDeprecated;
+            }
+            else {
+                self.currentState = VENVersionTrackerStateOutdated;
+            }
+            
             self.handler(VENVersionTrackerStateOutdated, version);
         }
     }

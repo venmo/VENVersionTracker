@@ -18,6 +18,7 @@
 		C250B2AC1817272A0094D2C1 /* VENVersionTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C250B2AB1817272A0094D2C1 /* VENVersionTrackerTests.m */; };
 		C250B2BB181729DC0094D2C1 /* VENVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = C250B2BA181729DC0094D2C1 /* VENVersion.m */; };
 		C250B2BC181729DC0094D2C1 /* VENVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = C250B2BA181729DC0094D2C1 /* VENVersion.m */; };
+		C2AF90F81827236A00E0D3CB /* VENVersionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C2AF90F71827236A00E0D3CB /* VENVersionTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,9 @@
 		C250B2AB1817272A0094D2C1 /* VENVersionTrackerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VENVersionTrackerTests.m; sourceTree = "<group>"; };
 		C250B2B9181729DC0094D2C1 /* VENVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VENVersion.h; sourceTree = "<group>"; };
 		C250B2BA181729DC0094D2C1 /* VENVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VENVersion.m; sourceTree = "<group>"; };
+		C2AF90F71827236A00E0D3CB /* VENVersionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VENVersionTests.m; sourceTree = "<group>"; };
+		C2AF90F9182725BA00E0D3CB /* VENTestData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VENTestData.h; sourceTree = "<group>"; };
+		C2AF90FC18272CA100E0D3CB /* VENTestAsyncHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VENTestAsyncHelpers.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,7 +137,10 @@
 		C250B2A51817272A0094D2C1 /* VENVersionTrackerTests */ = {
 			isa = PBXGroup;
 			children = (
+				C2AF90FC18272CA100E0D3CB /* VENTestAsyncHelpers.h */,
+				C2AF90F9182725BA00E0D3CB /* VENTestData.h */,
 				C250B2AB1817272A0094D2C1 /* VENVersionTrackerTests.m */,
+				C2AF90F71827236A00E0D3CB /* VENVersionTests.m */,
 				C250B2A61817272A0094D2C1 /* Supporting Files */,
 			);
 			path = VENVersionTrackerTests;
@@ -249,6 +256,7 @@
 			files = (
 				C250B2BC181729DC0094D2C1 /* VENVersion.m in Sources */,
 				C250B2AC1817272A0094D2C1 /* VENVersionTrackerTests.m in Sources */,
+				C2AF90F81827236A00E0D3CB /* VENVersionTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
