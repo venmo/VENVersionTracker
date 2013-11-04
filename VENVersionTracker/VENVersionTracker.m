@@ -42,7 +42,7 @@ static VENVersionTracker *versionTracker = nil;
     versionTracker = [[VENVersionTracker alloc] initWithChannel:channelName
                                                  serviceBaseUrl:baseUrl
                                                      andHandler:handler];
-    return YES;
+    return [versionTracker startTracking];
 }
 
 
@@ -114,7 +114,7 @@ static VENVersionTracker *versionTracker = nil;
     VENVersion *version         = [VENVersion latestRemoteVersionForChannel:self.channelName withBaseUrl:self.baseUrl];
     VENVersion *localVersion    = [VENVersion currentLocalVersion];
     
-    if (version && [version compare:localVersion] == NSOrderedAscending) {
+    if (version && [version compare:localVersion] == NSOrderedDescending) {
         
         // Outdated
         if (self.currentState == VENVersionTrackerStateOutdated) {
