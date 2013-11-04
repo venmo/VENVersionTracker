@@ -15,7 +15,7 @@ static VENVersionTracker *versionTracker = nil;
 #pragma mark - Private Interface -
 @interface VENVersionTracker(){}
 
-@property (nonatomic, strong) dispatch_source_t timerSource;
+@property (nonatomic) dispatch_source_t timerSource;
 
 - (instancetype)initWithChannel:(NSString *)channel
                  serviceBaseUrl:(NSString *)baseUrl
