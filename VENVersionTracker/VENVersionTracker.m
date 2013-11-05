@@ -8,7 +8,7 @@
 
 #import "VENVersionTracker.h"
 
-#define VEN_DEFAULT_TIME_BETWEEN_CHECKS_SECONDS 300
+#define VEN_DEFAULT_TIME_BETWEEN_CHECKS_SECONDS_DEFAULT 1800ull //1800ull // 30 minutes
 
 static VENVersionTracker *versionTracker = nil;
 
@@ -69,6 +69,7 @@ static VENVersionTracker *versionTracker = nil;
         self.baseUrl        = baseUrl;
         self.handler        = handler;
         
+        self.checkInterval  = VEN_DEFAULT_TIME_BETWEEN_CHECKS_SECONDS_DEFAULT;
         self.currentState   = VENVersionTrackerStateUnknown;
     }
     return self;
@@ -80,6 +81,12 @@ static VENVersionTracker *versionTracker = nil;
 }
 
 #pragma mark - Start and Stopping -
+
+- (void)setCheckInterval:(unsigned long long)checkInterval {
+    _checkInterval = checkInterval;
+    [self stopTracking];
+    [self startTracking];
+}
 
 - (BOOL)startTracking {
     return [self startTrackingWithTrackBlock:^{
@@ -93,7 +100,7 @@ static VENVersionTracker *versionTracker = nil;
     
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     self.timerSource = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
-    dispatch_source_set_timer(self.timerSource, dispatch_walltime(NULL, 0), 30ull * NSEC_PER_SEC, 1ull * NSEC_PER_SEC);
+    dispatch_source_set_timer(self.timerSource, dispatch_walltime(NULL, 0), self.checkInterval * NSEC_PER_SEC, 1ull * NSEC_PER_SEC);
     dispatch_source_set_event_handler(self.timerSource, self.trackBlock);
     dispatch_resume(self.timerSource);
     return YES;
@@ -101,7 +108,10 @@ static VENVersionTracker *versionTracker = nil;
 
 
 - (BOOL)stopTracking {
-    dispatch_source_cancel(self.timerSource);
+    if (self.timerSource) {
+        dispatch_source_set_timer(self.timerSource, DISPATCH_TIME_NOW, DISPATCH_TIME_FOREVER, 0ull);
+        self.timerSource = nil;
+    }
     self.trackBlock = nil;
     return YES;
 }
@@ -110,7 +120,7 @@ static VENVersionTracker *versionTracker = nil;
 #pragma mark - Track a channel -
 
 - (void)checkForUpdates {
-    
+    NSLog(@"Checking for Application Updates");
     VENVersion *version         = [VENVersion latestRemoteVersionForChannel:self.channelName withBaseUrl:self.baseUrl];
     VENVersion *localVersion    = [VENVersion currentLocalVersion];
     

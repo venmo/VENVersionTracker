@@ -58,7 +58,8 @@
     [versionTracker stopTracking];
     
     [versionTracker startTracking];
-    VENStartAsyncBlock();
+    [versionTracker setCheckInterval:10ull];
+
     int i = 0;
     while (i < 400) {
         i++;

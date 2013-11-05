@@ -24,6 +24,7 @@ typedef void (^VENVersionTrackBlock)();
 
 @property (nonatomic, strong) NSString *channelName;
 @property (nonatomic, strong) NSString *baseUrl;
+@property (nonatomic) unsigned long long checkInterval;
 
 @property (nonatomic, copy) VENVersionTrackBlock trackBlock;
 @property (nonatomic, copy) VENVersionHandlerBlock handler;
