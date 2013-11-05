@@ -30,8 +30,9 @@ typedef void (^VENVersionTrackBlock)();
 @property (nonatomic, copy) VENVersionHandlerBlock handler;
 @property (nonatomic) VENVersionTrackerState currentState;
 
-+ (BOOL)beginTrackingVersionForChannel:(NSString *)channel
++ (BOOL)beginTrackingVersionForChannel:(NSString *)channelName
                         serviceBaseUrl:(NSString *)baseUrl
+                          timeInterval:(unsigned long long)timeInterval
                            withHandler:(void (^)(VENVersionTrackerState, VENVersion *))handler;
 
 + (VENVersionTracker *)tracker;

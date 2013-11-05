@@ -37,7 +37,10 @@
 
 - (void)testCreatingVersionTracker
 {
-    [VENVersionTracker beginTrackingVersionForChannel:VEN_TEST_CHANEL_NAME serviceBaseUrl:VEN_TEST_BASE_URL withHandler:^(VENVersionTrackerState state, VENVersion *version) {
+    [VENVersionTracker beginTrackingVersionForChannel:VEN_TEST_CHANEL_NAME
+                                       serviceBaseUrl:VEN_TEST_BASE_URL
+                                          timeInterval:5
+                                          withHandler:^(VENVersionTrackerState state, VENVersion *version) {
         // Do nothing
     }];
     

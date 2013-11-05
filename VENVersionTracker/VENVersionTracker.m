@@ -19,6 +19,7 @@ static VENVersionTracker *versionTracker = nil;
 
 - (instancetype)initWithChannel:(NSString *)channel
                  serviceBaseUrl:(NSString *)baseUrl
+                   timeInterval:(unsigned long long)timeInterval
                      andHandler:(VENVersionHandlerBlock)handler;
 
 - (BOOL)startTracking;
@@ -33,6 +34,7 @@ static VENVersionTracker *versionTracker = nil;
 
 + (BOOL)beginTrackingVersionForChannel:(NSString *)channelName
                         serviceBaseUrl:(NSString *)baseUrl
+                          timeInterval:(unsigned long long)timeInterval
                             withHandler:(void (^)(VENVersionTrackerState, VENVersion *))handler {
     if (versionTracker) {
         [versionTracker stopTracking];
@@ -41,6 +43,7 @@ static VENVersionTracker *versionTracker = nil;
     
     versionTracker = [[VENVersionTracker alloc] initWithChannel:channelName
                                                  serviceBaseUrl:baseUrl
+                                                   timeInterval:timeInterval
                                                      andHandler:handler];
     return [versionTracker startTracking];
 }
@@ -61,6 +64,7 @@ static VENVersionTracker *versionTracker = nil;
 
 - (instancetype)initWithChannel:(NSString *)channel
                  serviceBaseUrl:(NSString *)baseUrl
+                   timeInterval:(unsigned long long)timeInterval
                      andHandler:(VENVersionHandlerBlock)handler {
     
     self = [super init];
@@ -68,8 +72,12 @@ static VENVersionTracker *versionTracker = nil;
         self.channelName    = channel;
         self.baseUrl        = baseUrl;
         self.handler        = handler;
-        
-        self.checkInterval  = VEN_DEFAULT_TIME_BETWEEN_CHECKS_SECONDS_DEFAULT;
+        self.checkInterval  = timeInterval;
+
+        if (self.checkInterval == 0) {
+            self.checkInterval  = VEN_DEFAULT_TIME_BETWEEN_CHECKS_SECONDS_DEFAULT;
+        }
+
         self.currentState   = VENVersionTrackerStateUnknown;
     }
     return self;
@@ -96,6 +104,7 @@ static VENVersionTracker *versionTracker = nil;
 
 - (BOOL)startTrackingWithTrackBlock:(VENVersionTrackBlock)trackBlock {
     
+    [self stopTracking];
     self.trackBlock = trackBlock;
     
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
@@ -110,6 +119,7 @@ static VENVersionTracker *versionTracker = nil;
 - (BOOL)stopTracking {
     if (self.timerSource) {
         dispatch_source_set_timer(self.timerSource, DISPATCH_TIME_NOW, DISPATCH_TIME_FOREVER, 0ull);
+        dispatch_source_cancel(self.timerSource);
         self.timerSource = nil;
     }
     self.trackBlock = nil;
