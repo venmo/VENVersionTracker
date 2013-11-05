@@ -52,7 +52,7 @@
     XCTAssertEqualObjects(versionTracker.channelName, VEN_TEST_CHANEL_NAME, @"Incorrect Base URL after initiation");
     
     // Test that we run the tracking block
-    VENStartAsyncBlock();
+    /*VENStartAsyncBlock();
     [versionTracker startTrackingWithTrackBlock:^{
         VENEndAsyncBlock();
     }];
@@ -62,7 +62,7 @@
     
     [versionTracker startTracking];
     [versionTracker setCheckInterval:10ull];
-
+*/
     int i = 0;
     while (i < 400) {
         i++;
