@@ -10,19 +10,19 @@
 
 @implementation VENVersion
 
-- (instancetype)initWithJSONPayload:(NSDictionary *)payload {
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
     
     @try {
-        if (!payload || ![payload isKindOfClass:[NSDictionary class]] || ![payload objectForKey:@"number"]) {
+        if (!dictionary || ![dictionary isKindOfClass:[NSDictionary class]] || ![dictionary objectForKey:@"number"]) {
             NSLog(@"VENVersionTracker :: Attempted to created invalid version");
             return nil;
         }
         
         self = [super init];
         if (self) {
-            self.versionString      = [NSString stringWithFormat:@"%@", [payload objectForKey:@"number"]];
-            self.installUrl         = [payload objectForKey:@"install_url"];
-            self.mandatory          = [[payload objectForKey:@"mandatory"] isEqualToNumber:[NSNumber numberWithBool:YES]];
+            self.versionString      = [NSString stringWithFormat:@"%@", [dictionary objectForKey:@"number"]];
+            self.installUrl         = [dictionary objectForKey:@"install_url"];
+            self.mandatory          = [[dictionary objectForKey:@"mandatory"] isEqualToNumber:[NSNumber numberWithBool:YES]];
             self.descriptionText    = @"";
         }
         return self;
@@ -42,6 +42,27 @@
 
 
 - (NSComparisonResult)compare:(VENVersion *)otherVersion {
+    
+    // Explicitly handle release builds being higher than development builds of the same version
+    NSCharacterSet *splitSet    = [NSCharacterSet characterSetWithCharactersInString:@"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"];
+    NSArray *versionParts       = [self.versionString componentsSeparatedByCharactersInSet:splitSet];
+    NSArray *otherVersionParts  = [otherVersion.versionString componentsSeparatedByCharactersInSet:splitSet];
+    
+    if ([versionParts count] > 1 && [otherVersionParts count] == 1) {
+        VENVersion *currentVersionBase      = [[VENVersion alloc] init];
+        currentVersionBase.versionString    = [versionParts objectAtIndex:0];
+        if ([currentVersionBase compare:otherVersion] == NSOrderedSame) {
+            return NSOrderedAscending;
+        }
+    }
+    else if ([otherVersionParts count] > 1 && [versionParts count] == 1) {
+        VENVersion *otherVersionBase        = [[VENVersion alloc] init];
+        otherVersionBase.versionString      = [otherVersionParts objectAtIndex:0];
+        if ([self compare:otherVersionBase] == NSOrderedSame) {
+            return NSOrderedDescending;
+        }
+    }
+    
     return [self.versionString compare:otherVersion.versionString options:NSNumericSearch];
 }
 
@@ -69,7 +90,7 @@
                           options:kNilOptions
                           error:&err];
     if (json && [json objectForKey:@"version"]) {
-        VENVersion *version = [[VENVersion alloc] initWithJSONPayload:[json objectForKey:@"version"]];
+        VENVersion *version = [[VENVersion alloc] initWithDictionary:[json objectForKey:@"version"]];
         return version;
     }
     return nil;
