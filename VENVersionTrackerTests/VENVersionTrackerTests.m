@@ -62,14 +62,14 @@
     
     [versionTracker startTracking];
     [versionTracker setCheckInterval:10ull];
-*/
+
     int i = 0;
     while (i < 400) {
         i++;
         [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:0.15]];
     }
     i = 0;
-    
+*/
 }
 
 
