@@ -16,9 +16,9 @@
 @property (nonatomic) BOOL mandatory;
 
 
-// Configures a VENVersion with the contents of a version payload
+// Configures a VENVersion with the contents of a version dictionary
 // returns nil if there is an error
-- (instancetype)initWithJSONPayload:(NSDictionary *)payload;
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 
 // Compare one version to another
