@@ -84,10 +84,6 @@ static VENVersionTracker *versionTracker = nil;
 }
 
 
-- (void)dealloc {
-    
-}
-
 #pragma mark - Start and Stopping -
 
 - (void)setCheckInterval:(unsigned long long)checkInterval {
@@ -96,11 +92,13 @@ static VENVersionTracker *versionTracker = nil;
     [self startTracking];
 }
 
+
 - (BOOL)startTracking {
     return [self startTrackingWithTrackBlock:^{
         [self checkForUpdates];
     }];
 }
+
 
 - (BOOL)startTrackingWithTrackBlock:(VENVersionTrackBlock)trackBlock {
     

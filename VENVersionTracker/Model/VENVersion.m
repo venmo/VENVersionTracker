@@ -13,16 +13,16 @@
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
     
     @try {
-        if (!dictionary || ![dictionary isKindOfClass:[NSDictionary class]] || ![dictionary objectForKey:@"number"]) {
+        if (!dictionary || ![dictionary isKindOfClass:[NSDictionary class]] || !dictionary[@"number"]) {
             NSLog(@"VENVersionTracker :: Attempted to created invalid version");
             return nil;
         }
         
         self = [super init];
         if (self) {
-            self.versionString      = [NSString stringWithFormat:@"%@", [dictionary objectForKey:@"number"]];
-            self.installUrl         = [dictionary objectForKey:@"install_url"];
-            self.mandatory          = [[dictionary objectForKey:@"mandatory"] isEqualToNumber:[NSNumber numberWithBool:YES]];
+            self.versionString      = [NSString stringWithFormat:@"%@", dictionary[@"number"]];
+            self.installUrl         = dictionary[@"install_url"];
+            self.mandatory          = [dictionary[@"mandatory"] isEqualToNumber:[NSNumber numberWithBool:YES]];
             self.descriptionText    = @"";
         }
         return self;
@@ -89,8 +89,8 @@
                           JSONObjectWithData:data
                           options:kNilOptions
                           error:&err];
-    if (json && [json objectForKey:@"version"]) {
-        VENVersion *version = [[VENVersion alloc] initWithDictionary:[json objectForKey:@"version"]];
+    if (json && json[@"version"]) {
+        VENVersion *version = [[VENVersion alloc] initWithDictionary:json[@"version"]];
         return version;
     }
     return nil;
@@ -98,7 +98,7 @@
 
 
 + (VENVersion *)currentLocalVersion {
-    NSString *versionString = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
+    NSString *versionString = [[NSBundle mainBundle] infoDictionary][@"CFBundleVersion"];
     
     if (!versionString) { //Not in a bundle -- return 0
         versionString = @"0";
