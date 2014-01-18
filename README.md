@@ -57,6 +57,9 @@ The restful endpoint (whether an actual service, or just a file in S3) should re
    "min-version-number":1.0 
 }
 ```
+### Screenshot
+<img src="http://f.cl.ly/items/3B0o3D2z2n230y0O2r3y/iOS%20Simulator%20Screen%20shot%20Jan%2018,%202014,%206.51.36%20PM.png" align="middle" width="320" />
+
 
 ### Contributing
 
