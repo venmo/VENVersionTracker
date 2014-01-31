@@ -5,7 +5,7 @@ iOS Version Tracking Library to update betas, let users know about new versions 
 ### Installation
 The easiest way is to use CocoaPods. If you don't already, here's a [guide](http://guides.cocoapods.org/using/getting-started.html).
 ``` ruby
-pod 'VENSnowOverlayView', '~>0.1.0'
+pod 'VENVersionTracker', '~>0.1.0'
 ```
 
 ### Outline
