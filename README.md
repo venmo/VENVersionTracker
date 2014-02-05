@@ -11,7 +11,7 @@ pod 'VENVersionTracker', '~>0.1.0'
 ### Outline
 `VENVersionTracker` is designed to allow you to maintain multiple `channels` of released builds modeling production (App Store) and any internal release groups you may have.
 
-#### e.g. At Vemo, we have:
+#### e.g. At Venmo, we have:
 
 `iosteam` Builds which will only go to the iOS development team e.g. 4.8.0a2
 
