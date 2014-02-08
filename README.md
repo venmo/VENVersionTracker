@@ -17,7 +17,7 @@ pod 'VENVersionTracker', '~>0.1.0'
 
 `internal` Builds which are shared with the company, typically promoted from `iosteam` e.g. 4.8.0b1
 
-`friends_and_family` Builds which are shared with our friends, family members and registered beta testers. These are builds being considered for submission to proudction (e.g. 4.8.0rc2)
+`friends_and_family` Builds which are shared with our friends, family members and registered beta testers. These are builds being considered for submission to production (e.g. 4.8.0rc2)
 
 `production` Update the production app when updates are available
 
