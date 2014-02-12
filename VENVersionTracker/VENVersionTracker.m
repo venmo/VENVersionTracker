@@ -146,7 +146,7 @@ static VENVersionTracker *versionTracker = nil;
                 self.currentState = VENVersionTrackerStateOutdated;
             }
             
-            self.handler(VENVersionTrackerStateOutdated, version);
+            self.handler(self.currentState, version);
         }
     }
     else {
