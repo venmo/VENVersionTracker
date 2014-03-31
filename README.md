@@ -1,5 +1,7 @@
 ## VENVersionTracker
 
+[![Build Status](https://travis-ci.org/venmo/VENVersionTracker.png?branch=master)](https://travis-ci.org/venmo/VENVersionTracker)
+
 iOS Version Tracking Library to update betas, let users know about new versions in production and enforce deprecated versions of your app.
 
 ### Installation
