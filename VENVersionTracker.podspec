@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "VENVersionTracker"
-  s.version      = "0.1.0"
+  s.version      = "0.1.1"
   s.summary      = "Monitor App Versions, Prompt and Force Updates."
   s.description  = <<-DESC
                    This library tracks application versions from a given
