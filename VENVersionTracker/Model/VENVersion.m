@@ -74,7 +74,9 @@
     
     NSString *versionUrl        = [NSString stringWithFormat:@"%@/track/%@", baseUrl, channel];
     NSURL *url                  = [NSURL URLWithString:versionUrl];
-    NSURLRequest *urlRequest    = [NSURLRequest requestWithURL:url];
+    NSURLRequest *urlRequest    = [NSURLRequest requestWithURL:url
+                                                   cachePolicy:NSURLRequestReloadIgnoringCacheData
+                                               timeoutInterval:60.0f];
     NSURLResponse *response     = nil;
     NSError *err                = nil;
     
